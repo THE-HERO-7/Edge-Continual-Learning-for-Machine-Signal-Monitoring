@@ -6,7 +6,7 @@ This project implements a hybrid architecture where embedded devices perform rea
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 Industrial environments are dynamic; new machines or signal patterns appear over time. Traditional ML models suffer from **catastrophic forgetting**, where learning a new task causes the model to lose previous knowledge, or they require expensive, full-dataset retraining.
 
 **This project solves this by implementing:**
@@ -16,7 +16,7 @@ Industrial environments are dynamic; new machines or signal patterns appear over
 
 ---
 
-## 🏗 System Architecture
+## System Architecture
 
 The system bridges low-power hardware with scalable cloud compute:
 
@@ -55,7 +55,7 @@ graph TD
 
 ---
 
-## ✨ Key Features
+## Key Features
 * **TinyML Inference:** Real-time execution on resource-constrained microcontrollers.
 * **Anomaly Gate:** One-Class SVM triggers learning cycles only when necessary.
 * **CIL Strategy:** Uses replay memory to prevent knowledge loss.
@@ -64,7 +64,7 @@ graph TD
 
 ---
 
-## 📊 Signal Features
+## Signal Features
 The system extracts **11 core features** from sensor windows:
 
 | Domain | Feature | Description |
@@ -83,7 +83,7 @@ The system extracts **11 core features** from sensor windows:
 
 ---
 
-## ⚙️ Machine Learning Pipeline
+## Machine Learning Pipeline
 
 ### 1. Edge Phase
 * **Feature Extraction:** Real-time processing of raw sensor data.
@@ -97,15 +97,15 @@ The system extracts **11 core features** from sensor windows:
 
 ---
 
-## 🔄 Dataset Evolution
+##  Dataset Evolution
 The system tracks knowledge growth through versioned datasets:
 * **v1:** CWRU vibration dataset (Baseline).
 * **v2:** Vibration + IMU classes.
 * **v3:** Vibration + IMU + Voltage signals.
-
+These are saved inside exmapler(data) folder
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 * **Embedded:** Arduino, ESP32, TinyML, `micromlgen`
 * **ML Frameworks:** XGBoost, Scikit-learn (One-Class SVM)
 * **Backend:** FastAPI, Python, REST APIs
@@ -113,15 +113,13 @@ The system tracks knowledge growth through versioned datasets:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ```text
-├── src/           # Edge firmware (C++/Arduino)
+├── src/           # Edge firmware (C++/Arduino)+ cloud server(FastAPI(local cloud training pipeline & logic)
 ├── include/       # TinyML model headers (model.h)
 ├── lib/           # Supporting C++ libraries
 ├── test/          # Hardware testing utilities
 ├── data/          # Exemplar datasets & versioning
-├── cloud/         # FastAPI training pipeline & logic
-└── requirements.txt
 ```
 
 ## Roadmap
